@@ -54,9 +54,9 @@ You will see the data in my_test_table no longer include rows with 2020-05-01 in
 
 ## The limitations
 
-## remove data by .purge
+## Remove data by .purge
 
-## more doc to read
+## More doc to read
 
 [Delete data from Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/delete-data?source=docs)  
 [Extents(data shards)](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/extents-overview)  
