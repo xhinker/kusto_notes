@@ -64,7 +64,11 @@ It works.
 
 In the backend, data in kusto table is divided into small bricks, called **extents**. when we query the data, kusto server will select the targeted extents, then union the hit extents. In other words, the table's data is the union of all data in its extents. 
 
-Each extent holds metadata such as creation time and optional **tags** associated in the extent. 
+Each extent holds metadata such as creation time and optional **tags** associated in the extent. You can execute the following code to see extents info of a table.
+
+```kusto
+.show table my_test_table extents
+```
 
 In the first section code, when I insert the data to *my_test_table*, I also give a drop-by tag in the **tags** section. 
 
@@ -82,7 +86,14 @@ where tags has "drop-by:2020-05-01"
 
 ## The limitations
 
+Remove data by extents is useful for a daily refresh table, when we found some day's data was contaminated, and when can remove the data ingest in that day. save us from the disaster of dropping whole table and refill. 
 
+But there are some limitations:
+1) Delete data by extent can't give us the precise control of which row to delete. 
+2) Keep small extent size will increase our control of data granularity, but decrease the performance. 
+3) We need to give the tags value when ingesting the data, if we missed it in the beginning, we won't able to delete the extent. 
+
+Besides, there is another way to delete specified rows of data by arbitrarily where condition. 
 
 ## Remove data by .purge
 
