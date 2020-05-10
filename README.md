@@ -1,0 +1,1 @@
+# kusto_notes
