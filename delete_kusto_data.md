@@ -62,9 +62,27 @@ It works.
 
 ## How it works
 
+In the backend, data in kusto table is divided into small bricks, called **extents**. when we query the data, kusto server will select the targeted extents, then union the hit extents. In other words, the table's data is the union of all data in its extents. 
 
+Each extent holds metadata such as creation time and optional **tags** associated in the extent. 
+
+In the first section code, when I insert the data to *my_test_table*, I also give a drop-by tag in the **tags** section. 
+
+```kusto
+tags   = '["drop-by:2020-05-01"]'
+```
+
+This tags will help us to track the specified extents, to view it or remove the whole extend. So that we can use the following code to remove a specified extent
+
+```kusto
+.drop extents <| 
+.show table my_test_table extents 
+where tags has "drop-by:2020-05-01" 
+```
 
 ## The limitations
+
+
 
 ## Remove data by .purge
 
