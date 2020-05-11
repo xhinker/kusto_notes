@@ -1,4 +1,4 @@
-# A quick guide to delete rows of data from kusto table
+# A quick guide to delete rows of data from Kusto table
 
 We all know that there is no way to update data for kusto table, we either append data or drop the whole table. Many are wondering if there is a way to delete some rows of data from existing kusto table, when things are screwed up.  
 
@@ -93,12 +93,38 @@ But there are some limitations:
 2) Keep small extent size will increase our control of data granularity, but decrease the performance. 
 3) We need to give the tags value when ingesting the data, if we missed it in the beginning, we won't able to delete the extent. 
 
-Besides, there is another way to delete specified rows of data by arbitrarily where condition. 
+Besides, there is another way to delete specified rows of data by arbitrarily where condition. it is the *.purge* command 
 
 ## Remove data by .purge
+
+Looks like the .purge command is initially designed to solve the GDPR problem, say, one customer want to permanently delete his/her data. We need a solution to remove the specified customer data. Let's run a quick test. 
+
+First, in your kusto explorer, connect to the ingest server. 
+
+```kusto
+#connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
+```
+
+Now, in the left **Connections** section, you shall see a new connection start with "Ingest-". click it. and run .purge command. For example, I want to remove the row that has the name == "Andrew3"
+
+```kusto
+.purge table my_test_table records in database Scratch with (noregrets='true') <| where name == "Andrew3"
+```
+
+Note, "Scratch" is my testing database name. 
+
+.purge is another way of extents removing in its essence.Here are basic steps of how purge works. 
+
+step 1. identify the data extent based on the where conditions, here is name == "Andrew3". 
+step 2. copy out the data in extent without data data row with name == "Andrew3",and create a new extent to replace it. 
+step 3. permanently delete the original extent. it will happen after 5 days, but before 30 days. 
+
+So, purge operation will have huge impact on the performance, and it is slow. it is not fit for huge and frequent data deletion, it fit only for occasionally one or two rows data removing. 
 
 ## More doc to read
 
 [Delete data from Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/delete-data?source=docs)  
 [Extents(data shards)](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/extents-overview)  
 [Data purge](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/data-purge)  
+
+By Andrew Zhu, updated on May 10 2020.  
