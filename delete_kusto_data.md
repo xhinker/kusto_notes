@@ -97,7 +97,7 @@ Besides, there is another way to delete specified rows of data by arbitrarily wh
 
 ## Remove data by .purge
 
-Looks like the .purge command is initially designed to solve the GDPR problem, say, one customer want to permanently delete his/her data. We need a solution to remove the specified customer data. Let's run a quick test. 
+the .purge command is initially designed to solve the GDPR problem, say, one customer want to permanently delete his/her data. We need a solution to remove the specified customer data. Let's run a quick test. 
 
 First, in your kusto explorer, connect to the ingest server. 
 
@@ -105,7 +105,7 @@ First, in your kusto explorer, connect to the ingest server.
 #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
 ```
 
-Next, in the left **Connections** section, you shall see a new connection start with "Ingest-". click it. and run .purge command. For example, I want to remove the row that has the name == "Andrew3"
+Next, in the left **Connections** section, you shall see a new connection start with "Ingest-". click it. and run .purge command. Say, I want to remove the row that has the name == "Andrew3"
 
 ```kusto
 .purge table my_test_table records in database Scratch with (noregrets='true') <| where name == "Andrew3"
@@ -117,11 +117,11 @@ Note, "Scratch" is my testing database name.
 
 step 1. identify the data extent based on the where conditions, here is name == "Andrew3".  
 step 2. copy out the data in extent without data data row with name == "Andrew3",and create a new extent to replace it.   
-step 3. permanently delete the original extent. it will happen after 5 days, but before 30 days.   
+step 3. permanently delete the original extent. it will happen after 5 days, before 30 days.   
 
-So, purge operation will have huge impact on the performance, and it is slow. it is not fit for huge and frequent data deletion, it fit only for occasionally one or two rows data removing. 
+So, purge operation will have huge impact on the performance, and it is slow. It is not fit for huge and frequent data deletion, it fit only for occasionally one or two rows data removing. 
 
-## More doc to read
+## Reference documents to read
 
 [Delete data from Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/delete-data?source=docs)  
 [Extents(data shards)](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/extents-overview)  
