@@ -2,8 +2,6 @@
 
 We all know that there is no way to update data for kusto table, we either append data or drop the whole table. Many are wondering if there is a way to delete some rows of data from existing kusto table, when things are screwed up.  
 
-Since you are in considering deleting rows of data, you should have the permission to write data to a kusto database, right?
-
 ## TL;TD Run a quick test
 
 First, Prepare two sets of data,and insert into a new table *my_test_table*.
