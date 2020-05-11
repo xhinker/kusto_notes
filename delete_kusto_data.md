@@ -105,7 +105,7 @@ First, in your kusto explorer, connect to the ingest server.
 #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
 ```
 
-Now, in the left **Connections** section, you shall see a new connection start with "Ingest-". click it. and run .purge command. For example, I want to remove the row that has the name == "Andrew3"
+Next, in the left **Connections** section, you shall see a new connection start with "Ingest-". click it. and run .purge command. For example, I want to remove the row that has the name == "Andrew3"
 
 ```kusto
 .purge table my_test_table records in database Scratch with (noregrets='true') <| where name == "Andrew3"
@@ -113,7 +113,7 @@ Now, in the left **Connections** section, you shall see a new connection start w
 
 Note, "Scratch" is my testing database name. 
 
-.purge is another way of extents removing in its essence.Here are basic steps of how purge works. 
+.purge is another way of extents removing in its essence. Here are basic steps of how purge works. 
 
 step 1. identify the data extent based on the where conditions, here is name == "Andrew3". 
 step 2. copy out the data in extent without data data row with name == "Andrew3",and create a new extent to replace it. 
