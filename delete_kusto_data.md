@@ -84,14 +84,14 @@ where tags has "drop-by:2020-05-01"
 
 ## The limitations
 
-Remove data by extents is useful for a daily refresh table, when we found some day's data was contaminated, and when can remove the data ingest in that day. save us from the disaster of dropping whole table and refill. 
+Remove data by extents is useful for a daily refresh table, when we found some day's data was contaminated, and we can remove the data ingest in that day. Save us from the disaster of dropping whole table and refill. 
 
 But there are some limitations:
 1) Delete data by extent can't give us the precise control of which row to delete. 
 2) Keep small extent size will increase our control of data granularity, but decrease the performance. 
-3) We need to give the tags value when ingesting the data, if we missed it in the beginning, we won't able to delete the extent. 
+3) We need to give the tags value when ingesting the data, if we missed it in the beginning, we lost the capability to delete the extent. 
 
-Besides, there is another way to delete specified rows of data by arbitrarily where condition. it is the *.purge* command 
+There is another way to delete specified rows of data by arbitrarily set where conditions. it is the *.purge* command.
 
 ## Remove data by .purge
 
