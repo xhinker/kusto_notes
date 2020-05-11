@@ -115,9 +115,9 @@ Note, "Scratch" is my testing database name.
 
 .purge is another way of extents removing in its essence. Here are basic steps of how purge works. 
 
-step 1. identify the data extent based on the where conditions, here is name == "Andrew3". 
-step 2. copy out the data in extent without data data row with name == "Andrew3",and create a new extent to replace it. 
-step 3. permanently delete the original extent. it will happen after 5 days, but before 30 days. 
+step 1. identify the data extent based on the where conditions, here is name == "Andrew3".  
+step 2. copy out the data in extent without data data row with name == "Andrew3",and create a new extent to replace it.   
+step 3. permanently delete the original extent. it will happen after 5 days, but before 30 days.   
 
 So, purge operation will have huge impact on the performance, and it is slow. it is not fit for huge and frequent data deletion, it fit only for occasionally one or two rows data removing. 
 
