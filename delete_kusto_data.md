@@ -95,7 +95,7 @@ There is another way to delete specified rows of data by arbitrarily set where c
 
 ## Remove data by .purge
 
-the .purge command is initially designed to solve the GDPR problem, say, one customer want to permanently delete his/her data. We need a solution to remove the specified customer data. Let's run a quick test. 
+The .purge command is initially designed to solve the GDPR problem, say, one customer want to permanently delete his/her data. We need a solution to remove the specified customer data. Let's run a quick test. 
 
 First, in your kusto explorer, connect to the ingest server. 
 
