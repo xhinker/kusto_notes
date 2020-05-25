@@ -1,4 +1,4 @@
-# Run to repeat kusto functions
+# Emulate a For loop in Kusto 
 
 How to call a function 7 times in one kusto script? You may say, use a for loop. Sorry, there is no **for** loop in Kusto. 
 
