@@ -12,14 +12,11 @@ Say, you have a function which will accept one input and print the number out. b
 let printer_func = (input:int){
     print(input)
 };
-let repeater = () {
-    let N = 7;
-    range p from 0 to N-1 step 1
-    | partition by p{ // {run a sub query inside} 
-        printer_func(toscalar(p))
-    }
-};
-repeater()
+let N = 7;
+range p from 0 to N-1 step 1
+| partition by p{ // {run a sub query inside} 
+    printer_func(toscalar(p))
+}
 ```
 
 You shall see the result like this: 
