@@ -1,0 +1,2 @@
+# Run python inside kusto
+

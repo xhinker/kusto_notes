@@ -30,7 +30,7 @@ print_0
 6
 2
 ```
-the result is not in fixed order, you could see the list in another order, which means, partition operations are executed in several computation nodes.
+The result is not in fixed order, you could see the list in another order, which means, partition operations are executed in several computation nodes.
 
 ## What to do if you want to pass a tabular parameter into the sub function
 
