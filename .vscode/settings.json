@@ -25,9 +25,6 @@
         },
         "MD007": { "indent": 4 }
     },
-    "pgsql.connection": "postgres://andrewzhu_pg:zsd64190718@zhusd.com:5432/azwebdb",
-    //"pgsql.connection": "postgres://andrewzhu_pg:zsd64190718@192.168.1.18:5432/azwebdb",
-    //"pgsql.connection": "postgres://andrewzhu_pg:zsd64190718@168.63.134.231:25432/azreaderdb",
     //"typescript.tsdk": "./node_modules/typescript/lib",
     "editor.acceptSuggestionOnEnter":"off",
     "files.eol": "\n",
