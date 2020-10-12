@@ -48,62 +48,6 @@
     // Bash on Ubuntu (on Windows)
     //"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
     "editor.smoothScrolling":true,
-    "mssql.connections": [
-        {
-            "server": "cia-sh-09",
-            "database": "startups_db",
-            "authenticationType": "SqlLogin",
-            "user": "AndrewZhu",
-            "password": "Xhinker0509.",
-            "savePassword": true,
-            "profileName": "cia-sh-09"
-        },
-        {
-            "server": "cia-sh-09\\sql2016",
-            "database": "startups_db",
-            "authenticationType": "SqlLogin",
-            "user": "AndrewZhu",
-            "password": "Xhinker0509.",
-            "savePassword": true,
-            "profileName": "cia-sh-09\\sql2016"
-        },
-        {
-            "server": "zhusd.com,14330",
-            "database": "",
-            "authenticationType": "SqlLogin",
-            "user": "sa",
-            "password": "",
-            "savePassword": true,
-            "profileName": "sp3_mssql_zhusd.com"
-        },
-        {
-            "server": "192.168.3.34,1433",
-            "database": "startups_db",
-            "authenticationType": "SqlLogin",
-            "user": "sa",
-            "password": "Xhinker0509.",
-            "savePassword": true,
-            "profileName": "sp3_mssql_local"
-        },
-        {
-            "server": "azreader.cloudapp.net",
-            "database": "startups_db",
-            "authenticationType": "SqlLogin",
-            "user": "xhinker",
-            "password": "Xhinker0509.",
-            "savePassword": true,
-            "profileName": "azreaderdb"
-        },
-        {
-            "server": "cia-startups.database.windows.net",
-            "database": "startups_db",
-            "authenticationType": "SqlLogin",
-            "user": "startups_admin",
-            "password": "CiaStart0519!",
-            "savePassword": true,
-            "profileName": "cia_startups"
-        }
-    ],
     "cSpell.words": [
         "AIPDD",
         "Aipddprod",
