@@ -1,3 +1,8 @@
+---
+title: Understand Kusto Inside Out and Why Kusto Is So Fast
+tags: ['kusto']
+status: draft
+---
 # Understand Kusto Inside Out and Why Kusto Is So Fast
 
 Kusto is a good name, but now it is only a nickname, Kusto’s official name is Azure Data Explorer or ADE. 
